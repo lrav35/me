@@ -2,10 +2,19 @@
   "name": "me",
   "module": "index.js",
   "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.js",
+    "build": "bun build src/index.js",
+    "start": "NODE_ENV=production bun src/index.js",
+    "test": "bun test"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "elysia": "^1.1.5"
   }
 }
