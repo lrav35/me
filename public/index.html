@@ -15,18 +15,24 @@
 	</header>
 
 	<button hx-get="/dynamic-content" hx-target="#dynamic-area">Load Content</button>
+	<button hx-get="/pika" hx-target="#dynamic-area">Load Different Content..</button>
 	<div id="dynamic-area"></div>
 
 
 	<div class="form-container">
 		<p>What else is on your mind??</p>
-		<form hx-post="/dynamic-post" hx-target="#dynamic-area-2"
-			hx-on::after-request="if(event.detail.successful) this.reset()">
-			<input type="text" id="form-input" required>
+		<form hx-post="/dynamic-post" hx-target="#dynamic-table-body"
+			hx-on::after-request="if(event.detail.successful) this.reset()" hx-swap="beforeend">
+			<input type="text" id="form-input" name="message" required>
 			<button type="submit">Submit</button>
 		</form>
 	</div>
-	<div id="dynamic-area-2"></div>
+	<div id="dynamic-area-2">
+		<table class="add-to-list-example">
+			<tbody id="dynamic-table-body">
+			<tbody>
+		</table>
+	</div>
 </body>
 
 </html>
