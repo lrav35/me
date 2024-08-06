@@ -1,11 +1,20 @@
 import { Elysia } from 'elysia';
-import { html } from '@elysiajs/html';
+import staticPlugin from '@elysiajs/static';
+import { handleDynamicPost } from './middlewares/dynamicPost';
 
 const app = new Elysia()
-	.use(html())
-	.get('/', () => Bun.file('./views/index.html'))
-	.get('/dynamic-content', () => '<p> this content was loaded dynamically via htmx</p>')
+	.use(staticPlugin({
+		prefix: '/',
+		assets: 'public',
+		indexHTML: true,
+	}))
 	.listen(3000);
+
+// serve content via str response
+app.get('/dynamic-content', () => '<p>This content was loaded dynamic with hypermedia via htmx!!!</p>');
+
+// serve content via file
+app.post('/dynamic-post', handleDynamicPost);
 
 console.log(`Elysia is running on port ${app.server.port}`);
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="htmx/htmx.min.js"></script>
+	<title>Hello World</title>
+
+<body>
+	<header class="container">
+		<hgroup>
+			<h1>Hello World, from my new website!</h1>
+		</hgroup>
+	</header>
+
+	<button hx-get="/dynamic-content" hx-target="#dynamic-area">Load Content</button>
+	<div id="dynamic-area"></div>
+
+
+	<div class="form-container">
+		<p>What else is on your mind??</p>
+		<form hx-post="/dynamic-post" hx-target="#dynamic-area-2"
+			hx-on::after-request="if(event.detail.successful) this.reset()">
+			<input type="text" id="form-input" required>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	<div id="dynamic-area-2"></div>
+</body>
+
+</html>
