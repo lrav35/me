@@ -1,0 +1,25 @@
+button {
+    padding: 6px 11px; /* Some padding */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Get the elements to line up correctly */
+    margin: 4px 2px; /* Add some margins */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+    /*position:absolute;
+    right:3px;
+    top:3px;*/
+    font-family:"MS Sans Serif";
+    /* margin:2px 2px 2px 0; */
+    /* float:right; */
+    background:#C0C0C0;
+    border-width:1px;
+    border-color:#FFFFFF #808080 #808080 #FFFFFF;
+    /* padding:0; */
+    font-size:11px;
+    font-weight:bold;
+    text-align:center;
+}
+
+button:hover {
+    background-color: #b0b0b0; /* Darker green on hover */
+}
